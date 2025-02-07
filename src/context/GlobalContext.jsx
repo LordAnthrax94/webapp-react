@@ -1,5 +1,5 @@
+import axios from "axios";
 import { createContext, useState, useContext } from "react";
-import { axios } from "axios";
 
 
 const GlobalContext = createContext();
@@ -13,17 +13,16 @@ const [movies, setMovies] = useState([])
 const fetchMovies = () =>{
   axios.get(api_url)
   .then(res =>{
-    console.log(res.data);
-    
+    setMovies(res.data)      
   })
   .catch(err => console.log(err))
 }
 
 const value = {
-  fetchMovies
+  movies,
+  fetchMovies,
+  
 }
-
-
   return(
     <GlobalContext.Provider value={value}>
       {children}

@@ -1,10 +1,10 @@
 import { useGlobalContext } from "../context/GlobalContext"
+import Card from "../Components/Card"
 import { useEffect } from "react"
-
 
 const HomePage = () =>{
 
-const {fetchMovies, movies} = useGlobalContext()
+const { movies, fetchMovies} = useGlobalContext()
 
 useEffect(fetchMovies, [])
 
@@ -12,10 +12,15 @@ useEffect(fetchMovies, [])
     <div>
       <div className="container">
         <h1>Lista Film</h1>
-        <div className="card"></div>
-      </div>
-      
+          {Array.isArray(movies) && movies.length > 0 ? (movies.map((movie) =>{ 
+            <div className="col-md-4" key={movie.id}>
+              <Card movie={movie} />
+            </div>
+      })):(<p>Nessun film disponibile</p>)}
+        
+        </div>
     </div>
+   
   )
 }
 
