@@ -1,5 +1,5 @@
 import { createContext, useState, useContext } from "react";
-import { Axios } from "axios";
+import { axios } from "axios";
 
 
 const GlobalContext = createContext();
@@ -8,9 +8,15 @@ const GlobalProvider = ({children}) =>{
 
 const api_url = import.meta.env.VITE_API_URL
 
+const [movies, setMovies] = useState([])
+
 const fetchMovies = () =>{
-  console.log(api_url);
-  
+  axios.get(api_url)
+  .then(res =>{
+    console.log(res.data);
+    
+  })
+  .catch(err => console.log(err))
 }
 
 const value = {

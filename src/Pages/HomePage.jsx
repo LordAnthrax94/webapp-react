@@ -4,13 +4,17 @@ import { useEffect } from "react"
 
 const HomePage = () =>{
 
-const {fetchMovies} = useGlobalContext()
+const {fetchMovies, movies} = useGlobalContext()
 
 useEffect(fetchMovies, [])
 
   return (
     <div>
-      Home
+      <div className="container">
+        <h1>Lista Film</h1>
+        <div className="card"></div>
+      </div>
+      
     </div>
   )
 }
