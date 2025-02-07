@@ -7,7 +7,15 @@ const GlobalContext = createContext();
 const GlobalProvider = ({children}) =>{
 
 const api_url = import.meta.env.VITE_API_URL
- const value = {}
+
+const fetchMovies = () =>{
+  console.log(api_url);
+  
+}
+
+const value = {
+  fetchMovies
+}
 
 
   return(
