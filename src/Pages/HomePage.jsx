@@ -10,15 +10,16 @@ useEffect(fetchMovies, [])
 
   return (
     <div>
-      <div className="container mt-3">
+      <div className="container mt-3">        
         <h1>Lista Film</h1>
-          {Array.isArray(movies) && movies.length > 0 ? (movies.map((movie) => (
-            <div className="col-12-md-4" key={movie.id}>
-               <Card movie={movie} />
-            </div>)
-      )):(<p>Nessun film disponibile</p>)}
-        
+        <div className="d-flex flex-wrap">
+            {Array.isArray(movies) && movies.length > 0 ? (movies.map((movie) => (
+              <div className="col-md-4 m-2" key={movie.id}>
+                <Card movie={movie} />
+              </div>)
+            )):(<p>Nessun film disponibile</p>)}
         </div>
+      </div>
     </div>
    
   )

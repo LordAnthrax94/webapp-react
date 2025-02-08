@@ -4,7 +4,8 @@ const Card = ({movie}) =>{
 
   
   return (    
-          <div className="card movies-card" >            
+          <div className="card movies-card" > 
+          <p>{movie.image}</p>           
             <img src={movie.image} className="card-img-top" alt={movie.title} />
             <div className="card-body">
               <h5 className="card-title">{movie.title}</h5>
