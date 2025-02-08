@@ -15,7 +15,7 @@ const fetchMovies = () =>{
   axios.get(api_url)
   .then(res =>{
     setMovies(res.data) 
-    console.log(res.data);
+    
          
   })
   .catch(err => console.log(err))
@@ -25,7 +25,7 @@ const fetchMovie = (id) =>{
   axios.get(`${api_url}/${id}`)
   .then(res =>{
     setMovie(res.data)
-    console.log(res.data);
+    
     
   })
   .catch(err => console.log(err))
