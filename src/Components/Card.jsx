@@ -12,11 +12,11 @@ const Card = ({movieData}) =>{
           // </div>
           
           
-          <div class="card" >
-            <img src={movie.image} class="card-img-top" alt={movie.name} />
-            <div class="card-body">
-              <h5 class="card-title">{movie.name}</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <div className="card" >
+            <img src={movie.image} className="card-img-top" alt={movie.name} />
+            <div className="card-body">
+              <h5 className="card-title">{movie.name}</h5>
+              <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               <Link to={`/movies/${movies.id}`} className="btn btn-success">Vedi dettagli</Link>
             </div>
           </div>
