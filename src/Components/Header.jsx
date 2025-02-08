@@ -3,7 +3,11 @@
 const Header = () =>{
   return (
     <header>
-      header
+      <nav className="text-bg-info">
+        <div className="d-flex">
+          <h3>Boolmovies</h3>
+        </div>
+      </nav>
     </header>
   )
 }

@@ -13,7 +13,7 @@ useEffect(fetchMovies, [])
       <div className="container">
         <h1>Lista Film</h1>
           {Array.isArray(movies) && movies.length > 0 ? (movies.map((movie) =>{ 
-            <div className="col-md-4" key={movie.id}>
+            <div className="col-12-md-4" key={movie.id}>
               <Card movie={movie} />
             </div>
       })):(<p>Nessun film disponibile</p>)}
