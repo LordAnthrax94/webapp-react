@@ -21,10 +21,12 @@ const fetchMovies = () =>{
   .catch(err => console.log(err))
 }
 
-const fetchMovie = (id) =>{
+
+const fetchMovie = (id) =>{  
   axios.get(`${api_url}/${id}`)
   .then(res =>{
     setMovie(res.data)
+
     
     
   })

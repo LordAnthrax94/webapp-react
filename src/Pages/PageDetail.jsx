@@ -6,6 +6,10 @@ import { useEffect } from "react"
 const PageDetail = () =>{
 
   const { id } = useParams();
+  console.log(id);
+  
+  console.log(useParams());
+  
   const { movie, fetchMovie } = useGlobalContext();
 
   useEffect(() => fetchMovie(id), [])
