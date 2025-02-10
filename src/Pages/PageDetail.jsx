@@ -6,23 +6,22 @@ import FormReview from "../Components/formReview"
 import Rating from "../Components/Rating"
 import ReviewCard from "../Components/ReviewCard"
 
-
-
 const PageDetail = () =>{
 
-  const { id } = useParams();
-  console.log(id);
+  const { id } = useParams();  
   
   console.log(useParams());
   
   const { movie, fetchMovie } = useGlobalContext();
 
-  const reviewList = () =>{
-    return movie.review.map(item => <ReviewCard key={item.id} review={item} />)
+  const reviewList = () =>{    
+    return isArray(movie).review.map(item => <ReviewCard key={item.id} review={item} />)
   }
 
+  
+  
+
   useEffect(() => fetchMovie(id), [])
-console.log(movie);
 
   return (
     <div className="col-12">      
@@ -39,7 +38,8 @@ console.log(movie);
       </div>
         <div>
             <section>
-              {movie?.reviews && reviewList()}
+              {movie?.abstract && reviewList()}
+              {movie?.vote}
             </section>
             <section>
               <FormReview />
