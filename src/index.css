@@ -4,5 +4,13 @@
 
 .movies-card{
   max-width: 400px;
-  margin: 20px;
+  margin: 20px;  
 }
+
+.locandina{
+  width: 200px;
+  border-radius: 10px;
+} 
+
+
+
