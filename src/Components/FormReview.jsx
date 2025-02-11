@@ -1,9 +1,13 @@
 import { useState } from "react"
 import axios from "axios"
+import { useGlobalContext } from "../context/GlobalContext"
 
 
 
-const FormReview = ({movie_id, fetchData}) =>{
+
+const FormReview = ({ movie_id }) =>{
+
+const { fetchMovie } = useGlobalContext()
 
 const api_url = `${import.meta.env.VITE_API_URL}/${movie_id}/reviews`
 
@@ -31,22 +35,27 @@ const api_url = `${import.meta.env.VITE_API_URL}/${movie_id}/reviews`
       return
     }
 
-    axios.post(api_url, formData, {'content-Type': 'application/json'})
+    axios.post(api_url, formData, {headers: {'content-Type': 'application/json'}})
       .then(res =>{
+        console.log(formData);
+        
         console.log(res.data);
         setFormData(initialFormData)
         setErrorMsg('')
-        fetchData(movie_id)                
+        fetchMovie(movie_id) 
+        console.log(fetchMovie);
+                       
       })
       .catch(err => {
+        console.log(formData);
         console.log(err);
         
       })
   }
 
   const setMovieValue = (e) =>{
-    const {name, text, value} = e.target
-    setFormData((prev => ({...prev, [name]: value})))
+    const {name, value} = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
   }
   
   return (
@@ -71,12 +80,11 @@ const api_url = `${import.meta.env.VITE_API_URL}/${movie_id}/reviews`
               <span className="input-group-text" id="inputGroup-sizing-default">Voto</span>
               <input type="number" name="vote" value={formData.vote} onChange={setMovieValue} min={1} max={5} className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
             </div>
-          </div>
-          <div>
-            <button className="btn btn-primary" type="submit">Aggiungi recensione</button>
-          </div>
-      </form>
-      
+            <div>
+              <button className="btn btn-primary m-3" type="submit">Aggiungi recensione</button>
+            </div>
+          </div>          
+      </form>      
     </div>
   )
 }
