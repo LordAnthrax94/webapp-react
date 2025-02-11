@@ -1,5 +1,5 @@
 .headerTitle{
-  padding: 10px;    
+  padding: 10px;      
 }
 
 .movies-card{
@@ -8,7 +8,7 @@
 }
 
 .locandina{
-  width: 200px;
+  max-width: 200px;
   border-radius: 10px;
 } 
 

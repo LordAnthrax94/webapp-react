@@ -16,6 +16,7 @@ function App() {
           <Route element={<DefaultLayout />}>
             <Route path='/' element={<HomePage />} />
             <Route path='/movies/:id' element={<PageDetail />} />
+            <Route path='/movies/add' element={<addMovies />} />
           </Route>
         </Routes>
         

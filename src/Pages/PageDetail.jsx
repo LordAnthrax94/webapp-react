@@ -8,16 +8,16 @@ import ReviewCard from "../Components/ReviewCard"
 
 const PageDetail = () =>{
 
-  const { id } = useParams();  
+  const { id } = useParams();   
   
-  console.log(useParams());
   
   const { movie, fetchMovie } = useGlobalContext();
 
   const reviewList = () =>{    
-    return isArray(movie).review.map(item => <ReviewCard key={item.id} review={item} />)
+    return movie?.reviews.map(item => <ReviewCard key={item.id} review={item} />) 
   }
 
+ 
   
   
 
@@ -25,24 +25,23 @@ const PageDetail = () =>{
 
   return (
     <div className="col-12">      
-      <div className="card d-flex flex-wrap">
+      <div className="card mt-3 d-flex flex-wrap">
         <div className="locandina">
           <img src={movie?.image} className="card-img-top" alt={movie?.title}/>
         </div>        
-        <div className="card-body">
+        <div className="descrizione card-body">
           <h1>{movie?.title}</h1> 
           <p className="card-text">{movie?.abstract}</p>
-          <p>{movie?.vote && <Rating vote={movie} />}</p>
+          <p>{movie?.vote && <Rating vote={movie.vote} />}</p>
           <p>{movie?.vote}</p> 
         </div>               
       </div>
         <div>
             <section>
-              {movie?.abstract && reviewList()}
-              {movie?.vote}
+              {reviewList()}              
             </section>
             <section>
-              <FormReview />
+              <FormReview movie_id={movie?.id} />
             </section>
         </div> 
         <div>

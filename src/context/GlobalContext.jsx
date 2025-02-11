@@ -25,8 +25,7 @@ const fetchMovies = () =>{
 const fetchMovie = (id) =>{  
   axios.get(`${api_url}/${id}`)
   .then(res =>{
-    setMovie(res.data)
-
+    setMovie(res.data) 
     
     
   })

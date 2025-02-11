@@ -1,11 +1,18 @@
-
+import { Link } from "react-router-dom"
 
 const Header = () =>{
   return (
-    <header>
-      <nav className="text-bg-secondary">
+    <header className="text-bg-secondary">
+      <nav className="container">
+        <div className="d-flex justify-content-between ">
         <div>
-          <h3 className="headerTitle">Boolmovies</h3>
+         <Link to={'/'} className="btn"><h2>BoolMovies</h2></Link>
+        </div>
+        <div>
+          <Link to={'/movies/add'} className="btn btn-warning"> Aggiungi un film</Link>
+        </div>
+        
+          
         </div>
       </nav>
     </header>

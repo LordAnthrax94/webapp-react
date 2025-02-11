@@ -3,11 +3,11 @@ import PropTypes from "prop-types"
 const Rating = ({ vote }) =>{
 
   const starStamp = () => {
-    console.log(vote);
+    
     
     const stars = []
     for(let i = 0; i < 5; i++){
-      stars.push(<i className={`bi bi-star${i < vote ? '-fill' : ''}`}></i>)
+      stars.push(<i key={i} className={`bi bi-star${i < vote ? '-fill' : ''}`}></i>)
     }
     return stars;
     }
@@ -18,7 +18,7 @@ const Rating = ({ vote }) =>{
 
 }
 
-Rating.PropTypes = {
+Rating.propTypes = {
   vote: PropTypes.number.isRequired
 }
 
