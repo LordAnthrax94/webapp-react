@@ -32,12 +32,21 @@ const fetchMovie = (id) =>{
   .catch(err => console.log(err))
 }
 
+const eliminateMovie = (id) =>{
+  axios.delete(`${api_url}/${id}`)
+  .then(res =>{
+    console.log(res.data)
+    fetchMovies()
+  })
+  .catch(err => console.log(err))
+}
+
 const value = {
   movies,
   fetchMovies,
   movie,
-  fetchMovie
-  
+  fetchMovie,
+  eliminateMovie  
 }
   return(
     <GlobalContext.Provider value={value}>
@@ -52,5 +61,5 @@ const useGlobalContext = () =>{
 
 export{
   GlobalProvider,
-  useGlobalContext
+  useGlobalContext,  
 }
